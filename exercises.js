@@ -256,6 +256,7 @@ function add(tree, value) {
         right: add(tree.right, value),
     }
 }
+
 function arrayToTree(array) {
     let tree = null;
     for (const elem of array) {
@@ -265,5 +266,44 @@ function arrayToTree(array) {
 }
 
 console.log(arrayToTree([ 1 , 2 , 3 , "A" , "B" ]));
+
+console.log("-".repeat(30));
+
+// 15 Write a constructor function for a bag, a bag has a maximum capacity and can contain other bags inside.
+//Provide methods to add and remove items from them bag. 
+//If the bag is full you should recursively check if the bag contains other bags where the item can be stored.
+console.log("\n15: create a constructor function for a bag, a bag has a maximum capacity and can contain other bags inside.");
+console.log("Provide methods to add and remove items from them bag.");
+console.log("If the bag is full you should recursively check if the bag contains other bags where the item can be stored. \n");
+
+
+
+
+
+
+console.log("-".repeat(30));
+
+// 16 create a generator function pseudoRandom(seed) that takes seed and creates the generator
+console.log("\n16: create a generator function pseudoRandom(seed) that takes seed and creates the generator \n");
+
+const mySeed = (s) => s * 12345 % 1234567;
+
+function* pseudoRandom(seed){
+    let value = seed;
+    while(true){
+        value = mySeed(value);
+        yield value;
+    }
+}
+
+let generator = pseudoRandom(666);
+
+let repeatNTimes = (N) => { 
+    for(let i = 0 ; i < N ; i++ ){
+        console.log(generator.next().value);
+    }
+}
+
+repeatNTimes(10);
 
 console.log("-".repeat(30));
