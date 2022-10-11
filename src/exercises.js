@@ -9,9 +9,9 @@ console.log("-".repeat(30));
 // 2 FizzBuzz
 console.log("\n2: fizzbuzz\n");
 for (let i = 1; i < 101; i++) {
-    if (i % 15 == 0) console.log("FizzBuzz");
-    else if (i % 3 == 0) console.log("Fizz");
-    else if (i % 5 == 0) console.log("Buzz");
+    if (i % 15 === 0) console.log("FizzBuzz");
+    else if (i % 3 === 0) console.log("Fizz");
+    else if (i % 5 === 0) console.log("Buzz");
     else console.log(i);
 }
 console.log("-".repeat(30));
@@ -31,7 +31,7 @@ console.log("-".repeat(30));
 console.log("\n4: shorten string with (...) \n");
 const str = "The quick brown fox jumped over the lazy dog.";
 function fun(str , val) {
-    let newStr = str.slice(0 , val).concat("...");
+    const newStr = str.slice(0 , val).concat("...");
     return newStr;
 }
 console.log(fun(str , 10 ));
@@ -51,7 +51,7 @@ console.log("result: " + camelToSnake(camel));
 console.log("-".repeat(30));
 // 6 slugify a string
 console.log("\n6: slugify a string \n");
-let slugString = "% /a String! $to ?sluggify#";
+const slugString = "% /a String! $to ?sluggify#";
 function sluggify(str){
     return str.toLowerCase().trim()
     .replace(/[^\w\s-]/g, '')
@@ -62,7 +62,7 @@ console.log(sluggify(slugString));
 console.log("-".repeat(30));
 // 7 Given an URL, parse the query string such that it returns an object
 console.log("\n7: parse a query string and return an object \n");
-let linkToParse = "mindera.com?a=1,2&b=3,4&c=four";
+const linkToParse = "mindera.com?a=1,2&b=3,4&c=four";
 function objectify(url) {
     const [, queryString ] = url.split("?");
     const queryParameters = queryString.split("&");
@@ -80,11 +80,12 @@ console.log(objectify(linkToParse));
 console.log("-".repeat(30));
 // 8 reverse an array without ".reverse()"
 console.log("\n8: reverse an array \n");
-let arrayToReverse = [ 1 , 2 , 3 , 4 , 5 , 6 ];
-let arrayToReverse2 = [ "a" , "b" , "c" , "d" , "e" , "f"];
+const arrayToReverse = [ 1 , 2 , 3 , 4 , 5 , 6 ];
+const arrayToReverse2 = [ "a" , "b" , "c" , "d" , "e" , "f"];
 function reverseArray(arr){
-    let newArr = [];
-    arr.forEach(e => {newArr.unshift(e)})
+    const newArr = [];
+    arr.forEach(e => {newArr.unshift(e);
+    });
     return newArr;
 }
 function reverseArrayInPlace(arr){
@@ -99,8 +100,8 @@ console.log("-".repeat(30));
 // 9 the sum of a range
 console.log("\n9: the sum of a range \n");
 function createArr(min, max){
-    if(min >= max){return console.log("bad move.")}
-    let newArr = [];
+    if(min >= max){return console.log("bad move.");}
+    const newArr = [];
     for(let i = min ; i <= max ; i++){
         newArr.push(i); }
     return newArr;
@@ -121,22 +122,22 @@ function arrayToList([...arr], n = 0){
 }
 function listToArray({...list}, arr = []){
     arr.push(list.value);
-    return (list.rest != null) ? listToArray(list.rest, arr) : arr;
+    return (list.rest !== null) ? listToArray(list.rest, arr) : arr;
 }
 console.log(arrayToList(thisArray));
 console.log(listToArray(arrayToList(thisArray)));
 console.log("-".repeat(30));
 // 11 create a function that takes two values and compares if equal
 console.log("\n11: create a function that takes two values and compares if equal  \n");
-let obj = {here: {is: "an"}, object: 2};
+const obj = {here: {is: "an"}, object: 2};
 let counter = 0;
 function deepEqual (value1 , value2){
     console.log("recursion times:" + counter++);
     if (value1 === value2) {return true;}
-    if (value1 == null || typeof value1 != "object" || value2 == null || typeof value2 != "object"){return false;}
-    let keysIn1 = Object.keys(value1);
-    let keysIn2 = Object.keys(value2);
-    if (keysIn1.length !== keysIn2.length) {return false}
+    if (value1 === null || typeof value1 !== "object" || value2 === null || typeof value2 !== "object"){return false;}
+    const keysIn1 = Object.keys(value1);
+    const keysIn2 = Object.keys(value2);
+    if (keysIn1.length !== keysIn2.length) {return false;}
     for (const key of keysIn1){
         if (!keysIn2.includes(key) || !deepEqual(value1[key], value2[key]))
         {return false;}
@@ -201,13 +202,13 @@ function add(tree, value) {
             value: tree.value,
             left: add(tree.left, value),
             right: tree.right,
-        }
+        };
     }
     return {
         value: tree.value,
         left: tree.left,
         right: add(tree.right, value),
-    }
+    };
 }
 function arrayToTree(array) {
     let tree = null;
@@ -236,12 +237,12 @@ function* pseudoRandom(seed){
         yield value;
     }
 }
-let generator = pseudoRandom(666);
-let repeatNTimes = (N) => { 
+const generator = pseudoRandom(666);
+const repeatNTimes = (N) => { 
     for(let i = 0 ; i < N ; i++ ){
         console.log(generator.next().value);
     }
-}
+};
 repeatNTimes(10);
 console.log("-".repeat(30));
 // 17 create a class Vec that represents a vector in two-dimensional space
@@ -251,8 +252,8 @@ class Vec{
         this.x = x;
         this.y = y;
     }
-    plus(x , y){this.x + x , this.y + y }
-    minus(x , y){this.x - x , this.y - y}
+    plus(x , y){this.x + x , this.y + y ;}
+    minus(x , y){this.x - x , this.y - y ;}
 }
 console.log(new Vec(2,3));
 console.log("-".repeat(30));

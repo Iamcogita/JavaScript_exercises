@@ -4,7 +4,7 @@
   "main": "index.js",
   "module": "./src/sum.js",
   "scripts": {
-    "start": "node JavaScript_exercises/src/exercises.js",
+    "start": "index.js",
     "test": "jest"
   },
   "author": "cogita",

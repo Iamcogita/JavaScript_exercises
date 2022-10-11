@@ -7,12 +7,3 @@ const recursion = (x , y) => {
 }
 console.log(recursion(1, 10));
 console.log("_".repeat(40));
-// decorator: trying it out for the first time
-function decorator(x){
-    return function f(){
-        let result = `old value is: ${f(x)}`;
-        return result;
-    }
-}
-let oldF = (x) => {return x + 1 ;}
-console.log(decorator(oldF(1)));
