@@ -15,5 +15,4 @@ function decorator(x){
     }
 }
 let oldF = (x) => {return x + 1 ;}
-//oldF = decorator(oldF);
 console.log(decorator(oldF(1)));

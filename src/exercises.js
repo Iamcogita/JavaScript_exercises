@@ -224,12 +224,7 @@ console.log("-".repeat(30));
 console.log("\n15: create a constructor function for a bag, a bag has a maximum capacity and can contain other bags inside.");
 console.log("Provide methods to add and remove items from them bag.");
 console.log("If the bag is full you should recursively check if the bag contains other bags where the item can be stored. \n");
-
-
-
-
-
-
+//TODO
 console.log("-".repeat(30));
 // 16 create a generator function pseudoRandom(seed) that takes seed and creates the generator
 console.log("\n16: create a generator function pseudoRandom(seed) that takes seed and creates the generator \n");
@@ -265,8 +260,5 @@ console.log("-".repeat(30));
 //and creates a group that contains all the values produced by iterating over it
 console.log("\n18: Give the class a static from method that takes an iterable object as argument");
 console.log("and creates a group that contains all the values produced by iterating over it\n");
-
-
-
-
+//TODO 
 console.log("-".repeat(30));
