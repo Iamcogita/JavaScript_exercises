@@ -17,7 +17,6 @@ for (let i = 1; i < 101; i++) {
 console.log("-".repeat(30));
 // 3 Chessboard
 console.log("\n3: chessboard\n");
-
 let chessboard = "";
 for(let i = 0 ; i < 8 ; i++ ){
     for(let j = 0 ; j < 8 ; j ++){
@@ -27,56 +26,43 @@ for(let i = 0 ; i < 8 ; i++ ){
     chessboard = chessboard.concat("\n");
 }
 console.log(chessboard);
-
 console.log("-".repeat(30));
 // 4 shorten a string with ellipsis
 console.log("\n4: shorten string with (...) \n");
-
 const str = "The quick brown fox jumped over the lazy dog.";
 function fun(str , val) {
     let newStr = str.slice(0 , val).concat("...");
     return newStr;
 }
 console.log(fun(str , 10 ));
-
 console.log("-".repeat(30));
 // 5 convert camelCase to snake_case and vice-verse
 console.log("\n5: convert strings from camelCase to snake_case, and vice-versa \n");
-
 const snake = "this_string_is_snake_case";
 const camel = "thisStringIsCamelCase";
-
 function snakeToCamel(x){
     return x.replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase());
 }
-
 function camelToSnake(x){
     return x.replace(/[A-Z]/g, char => `_${char.toLowerCase()}`);
 }
-
 console.log("result: " + snakeToCamel(snake));
 console.log("result: " + camelToSnake(camel));
-
 console.log("-".repeat(30));
 // 6 slugify a string
 console.log("\n6: slugify a string \n");
-
 let slugString = "% /a String! $to ?sluggify#";
-
 function sluggify(str){
     return str.toLowerCase().trim()
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
-
 console.log(sluggify(slugString));
-
 console.log("-".repeat(30));
 // 7 Given an URL, parse the query string such that it returns an object
 console.log("\n7: parse a query string and return an object \n");
 let linkToParse = "mindera.com?a=1,2&b=3,4&c=four";
-
 function objectify(url) {
     const [, queryString ] = url.split("?");
     const queryParameters = queryString.split("&");
@@ -90,17 +76,12 @@ function objectify(url) {
         return queryStringObject;
     }, {});
 }
-
 console.log(objectify(linkToParse));
-
 console.log("-".repeat(30));
-
 // 8 reverse an array without ".reverse()"
 console.log("\n8: reverse an array \n");
-
 let arrayToReverse = [ 1 , 2 , 3 , 4 , 5 , 6 ];
 let arrayToReverse2 = [ "a" , "b" , "c" , "d" , "e" , "f"];
-
 function reverseArray(arr){
     let newArr = [];
     arr.forEach(e => {newArr.unshift(e)})
@@ -112,15 +93,11 @@ function reverseArrayInPlace(arr){
     }
     return arr;
 }
-
 console.log(reverseArray(arrayToReverse));
 console.log(reverseArrayInPlace(arrayToReverse2));
-
 console.log("-".repeat(30));
-
 // 9 the sum of a range
 console.log("\n9: the sum of a range \n");
-
 function createArr(min, max){
     if(min >= max){return console.log("bad move.")}
     let newArr = [];
@@ -128,43 +105,31 @@ function createArr(min, max){
         newArr.push(i); }
     return newArr;
 }
-
 function sumElements(arr){
     let result = 0;
     for(let i = 0 ; i < arr.length ; i++){
         result = result + arr[i];}
     return result;
 }
-
 console.log(sumElements(createArr(1,10)));
-
 console.log("-".repeat(30));
-
 // 10 create arrayToList that builds up a list
 console.log("\n10: write a function arrayToList that builds up a list  \n");
-
 const thisArray = [1 , 2 , 3 , 4 , 5 , 6];
-
 function arrayToList([...arr], n = 0){
     return (n < arr.length) ? {value: arr[n], rest: arrayToList(arr, n + 1)} : null;
 }
-
 function listToArray({...list}, arr = []){
     arr.push(list.value);
     return (list.rest != null) ? listToArray(list.rest, arr) : arr;
 }
-
 console.log(arrayToList(thisArray));
 console.log(listToArray(arrayToList(thisArray)));
-
 console.log("-".repeat(30));
-
 // 11 create a function that takes two values and compares if equal
 console.log("\n11: create a function that takes two values and compares if equal  \n");
-
 let obj = {here: {is: "an"}, object: 2};
 let counter = 0;
-
 function deepEqual (value1 , value2){
     console.log("recursion times:" + counter++);
     if (value1 === value2) {return true;}
@@ -178,14 +143,10 @@ function deepEqual (value1 , value2){
     }
     return true;
 }
-
 console.log(deepEqual(obj , {here: {is: "an"}, object: 2} ));
-
 console.log("-".repeat(30));
-
 // 12 implement Quicksort algorithm
 console.log("\n12: implement Quicksort algorithm \n");
-
 function quickSort(array) {
     if (array.length <= 1) {
         return array;
@@ -202,14 +163,10 @@ function quickSort(array) {
     }
     return [...quickSort(left), pivot, ...quickSort(right)];
 }
-
 console.log(quickSort([5,3,1,8,9]));
-
 console.log("-".repeat(30));
-
 // 13 implement Binary Search algorithm
 console.log("\n13: implement Binary Search algorithm \n");
-
 function binarySearch(arr, elem) {
     if (arr.length === 0) {
         return -1;
@@ -225,16 +182,12 @@ function binarySearch(arr, elem) {
     }
     return binarySearch(arr.slice(0, middleIndex), elem);
 }
-
 console.log(binarySearch(quickSort([1,4,5,2]), 2));
-
 console.log("-".repeat(30));
-
 // 14 Write a function arrayToBinaryTree that takes an array and returns a binary tree
 //Also write a function add, that adds a node to the said binary tree
 console.log("\n14: create arrayToBinaryTree that takes an array and returns a binary tree");
 console.log("also write a function add, that adds a node to the said binary tree \n");
-
 function add(tree, value) {
     if (tree === null) {
         return {
@@ -256,7 +209,6 @@ function add(tree, value) {
         right: add(tree.right, value),
     }
 }
-
 function arrayToTree(array) {
     let tree = null;
     for (const elem of array) {
@@ -264,11 +216,8 @@ function arrayToTree(array) {
     }
     return tree;
 }
-
 console.log(arrayToTree([ 1 , 2 , 3 , "A" , "B" ]));
-
 console.log("-".repeat(30));
-
 // 15 Write a constructor function for a bag, a bag has a maximum capacity and can contain other bags inside.
 //Provide methods to add and remove items from them bag. 
 //If the bag is full you should recursively check if the bag contains other bags where the item can be stored.
@@ -282,12 +231,9 @@ console.log("If the bag is full you should recursively check if the bag contains
 
 
 console.log("-".repeat(30));
-
 // 16 create a generator function pseudoRandom(seed) that takes seed and creates the generator
 console.log("\n16: create a generator function pseudoRandom(seed) that takes seed and creates the generator \n");
-
 const mySeed = (s) => s * 12345 % 1234567;
-
 function* pseudoRandom(seed){
     let value = seed;
     while(true){
@@ -295,15 +241,33 @@ function* pseudoRandom(seed){
         yield value;
     }
 }
-
 let generator = pseudoRandom(666);
-
 let repeatNTimes = (N) => { 
     for(let i = 0 ; i < N ; i++ ){
         console.log(generator.next().value);
     }
 }
-
 repeatNTimes(10);
+console.log("-".repeat(30));
+// 17 create a class Vec that represents a vector in two-dimensional space
+console.log("\n17: create a class Vec that represents a vector in two-dimensional space \n");
+class Vec{
+    constructor(x , y){
+        this.x = x;
+        this.y = y;
+    }
+    plus(x , y){this.x + x , this.y + y }
+    minus(x , y){this.x - x , this.y - y}
+    get length(){}
+}
+console.log(new Vec(2,3));
+console.log("-".repeat(30));
+// 18 Give the class a static from method that takes an iterable object as argument
+//and creates a group that contains all the values produced by iterating over it
+console.log("\n18: Give the class a static from method that takes an iterable object as argument");
+console.log("and creates a group that contains all the values produced by iterating over it\n");
+
+
+
 
 console.log("-".repeat(30));

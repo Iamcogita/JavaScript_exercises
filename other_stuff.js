@@ -108,7 +108,3 @@ function foo({name, surname}) {
     foobarzam();
     barzamfoo();
     foobarzam();
-
-    // Write a constructor function for a bag, a bag has a maximum capacity and can contain other bags inside. 
-    //Provide methods to add and remove items from them bag. 
-    //If the bag is full you should recursively check if the bag contains other bags where the item can be stored.
