@@ -28,14 +28,26 @@
 //     return Promise.all(arrayOfPromises).then(array => array.flat());    // [[0,20], [21,40]] => [0.....40]
 // }
 // get40news().then(console.log);
-//exercício 4: escrever uma função getFullArticles que retorna uma Promise para um array com os detalhes de cada notícia.
-const urlPage4 = "https://hn.algolia.com/api/v1/search?page=4";
-function getFullArticles(url){
-    return fetch(url).then(response => response.json())
-        .then(json => json.hits)
-        .then(news => news.map(elem => elem.objectID))
-        .then(idArray => idArray.map(id => fetch("http://hn.algolia.com/api/v1/items/".concat(id))))
-        .then(arrProm => arrProm.map(elem => elem.then(e => e.json())))
-        .then(array => Promise.all(array));
+// //exercício 4: escrever uma função getFullArticles que retorna uma Promise para um array com os detalhes de cada notícia.
+// const urlPage4 = "https://hn.algolia.com/api/v1/search?page=4";
+// function getFullArticles(url){
+//     return fetch(url).then(response => response.json())
+//         .then(json => json.hits)
+//         .then(news => news.map(elem => elem.objectID))
+//         .then(idArray => idArray.map(id => fetch("http://hn.algolia.com/api/v1/items/".concat(id))))
+//         .then(arrProm => arrProm.map(elem => elem.then(e => e.json())))
+//         .then(array => Promise.all(array));
+// }
+// getFullArticles(urlPage4).then(console.log);
+
+const thisUrl = () => fetch("https://hn.algolia.com/api/v1/search")
+    .then((response) => {
+        response.json
+        .then((news) => {news.json.json})
+        }).then(console.log);
+
+function print(){
+    return console.log(thisUrl)
 }
-getFullArticles(urlPage4).then(console.log);
+
+console.log(print);
